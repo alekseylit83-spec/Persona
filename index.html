@@ -91,7 +91,7 @@
   .hero__lead{max-width:54ch;font-size:1rem;line-height:1.6;margin:0;color:#e7dbc9}
 
   /* ---------- SECTIONS ---------- */
-  main{background:var(--bg-main)}
+  main{background:linear-gradient(180deg,#14110c 0%,#1b1611 14%,#241d16 34%,#362d1f 58%,#4a3f2b 80%,#5c4f38 100%)}
   section.block{padding:44px 0}
   section.block + section.block{border-top:1px solid var(--line)}
   .sec-head{margin:0 0 24px}
@@ -117,56 +117,42 @@
   .contact-line a:hover{color:var(--accent);border-color:var(--accent)}
   .contact-line .sep{margin:0 10px;color:var(--line)}
 
-  /* skills — plain list */
-  .sub-head{font-size:1.02rem;font-weight:800;margin:6px 0 16px;color:var(--ink)}
-  .skills-list{
-    display:grid;grid-template-columns:1fr 1fr;gap:4px 32px;margin-bottom:28px;
-  }
-  .skill-item{padding:14px 0;border-top:1px solid var(--line)}
-  .skills-list .skill-item:nth-child(1),
-  .skills-list .skill-item:nth-child(2){border-top:none;padding-top:0}
-  .skill-item b{display:block;color:var(--ink);font-size:.9rem;font-weight:700;margin-bottom:4px}
-  .skill-item p{color:var(--ink-soft);font-size:.87rem;line-height:1.5;margin:0}
+  .sub-head{font-size:1.02rem;font-weight:800;margin:28px 0 16px;color:var(--ink)}
+  .proj-intro{color:var(--muted);font-size:.97rem;margin-bottom:10px}
 
-  /* projects — collage */
-  .proj-intro{color:var(--muted);font-size:.97rem;margin-bottom:16px}
+  /* projects — photo collage */
   .projects{
-    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;
   }
   .proj{
-    background:var(--surface);border:1px solid var(--line);
-    border-radius:16px;overflow:hidden;
+    position:relative;border-radius:16px;overflow:hidden;
+    aspect-ratio:4/5;color:#fff;
   }
-  .proj--wide{grid-column:span 2}
-  .proj__body{padding:22px 24px 24px}
-  .proj__top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
-  .proj h3{font-size:1.12rem;margin:0;font-weight:800;color:var(--ink)}
-  .proj__period{font-size:.78rem;color:var(--muted);white-space:nowrap;font-weight:600}
-  .proj__role{
-    display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
-    font-weight:700;color:var(--accent);margin-bottom:10px;
+  .proj--wide{grid-column:span 2;aspect-ratio:21/9}
+  .proj__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .proj__scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 45%,rgba(9,7,4,.55) 75%,rgba(8,6,4,.9) 100%);
   }
-  .proj p{font-size:.94rem;color:var(--ink-soft);margin:0}
-  .proj__photo{width:100%;aspect-ratio:16/9;object-fit:cover}
-  .proj__duo{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-  .proj__duo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .proj__body{position:relative;z-index:1;height:100%;display:flex;align-items:flex-end;padding:18px 20px}
+  .proj h3{font-size:1rem;margin:0;font-weight:800;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+  .proj__duo{position:absolute;inset:0;display:grid;grid-template-rows:1fr 1fr;gap:2px}
+  .proj__duo img{width:100%;height:100%;object-fit:cover}
 
-  /* tinted tiles for projects without photos */
-  .proj--tinted{border:none;color:#fff;display:flex;flex-direction:column}
-  .proj--tinted .proj__body{flex:1;display:flex;flex-direction:column;justify-content:center}
-  .proj--tinted .proj__role{color:rgba(255,255,255,.75)}
-  .proj--tinted .proj__period{color:rgba(255,255,255,.6)}
-  .proj--tinted h3{color:#fff}
-  .proj--tinted p{color:rgba(255,255,255,.86)}
-  .proj--accent{background:
-    radial-gradient(130% 95% at 18% 0%,rgba(255,222,180,.22),transparent 55%),
-    linear-gradient(155deg,#d68a3e 0%,#c1712f 32%,#8a4d1e 68%,#4a2a10 100%)}
-  .proj--wine{background:
-    radial-gradient(130% 95% at 18% 0%,rgba(255,200,200,.16),transparent 55%),
-    linear-gradient(155deg,#8a3a4d 0%,#6e2a3a 32%,#481b25 68%,#260f15 100%)}
-  .proj--ink{background:
-    radial-gradient(130% 95% at 18% 0%,rgba(255,235,200,.12),transparent 55%),
-    linear-gradient(155deg,#544a37 0%,#3a3225 32%,#241f16 68%,#120f09 100%)}
+  /* tinted tiles for projects without a real photo — a sketched backdrop stands in */
+  .proj--tinted .proj__body{justify-content:center;text-align:center;align-items:center}
+  .proj--tinted h3{text-shadow:0 2px 8px rgba(20,18,14,.5)}
+  .proj--tinted{
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg fill='none' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.55'%3E%3Cpath d='M14,8 C14,26 30,28 30,40 L30,60 M46,8 C46,26 30,28 30,40 M20,64 L40,64'/%3E%3Cpath d='M82,0 L82,20 M90,0 L90,20 M98,0 L98,20 M82,20 C82,28 98,28 98,20 M90,28 L90,70'/%3E%3Cg%3E%3Ccircle cx='140' cy='80' r='6'/%3E%3Ccircle cx='152' cy='88' r='6'/%3E%3Ccircle cx='128' cy='88' r='6'/%3E%3Ccircle cx='140' cy='96' r='6'/%3E%3Ccircle cx='152' cy='104' r='6'/%3E%3Ccircle cx='128' cy='104' r='6'/%3E%3Ccircle cx='140' cy='112' r='6'/%3E%3Cpath d='M140,74 L140,60 C140,54 150,52 152,58'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(120% 60% at 8% 0%,rgba(255,255,255,.22),transparent 42%),
+      radial-gradient(90% 55% at 92% 92%,rgba(0,0,0,.18),transparent 48%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 16px),
+      linear-gradient(155deg,#e4ddcf 0%,#b6b0a0 32%,#726e64 64%,#35332f 100%);
+    background-blend-mode:overlay,normal,normal,normal,normal;
+    background-size:180px 180px,cover,cover,cover,cover;
+    background-repeat:repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  }
 
   /* facts — grouped lists */
   .facts-group{margin-bottom:28px}
@@ -210,10 +196,9 @@
     section.block{padding:44px 0}
     .hero__inner{padding:44px 0 36px}
     .hero__portrait{width:78%;max-width:none;opacity:.55}
-    .skills-list{grid-template-columns:1fr}
-    .skills-list .skill-item:nth-child(2){border-top:1px solid var(--line);padding-top:14px}
     .projects{grid-template-columns:1fr}
-    .proj--wide{grid-column:span 1}
+    .proj{aspect-ratio:1/1}
+    .proj--wide{grid-column:span 1;aspect-ratio:4/3}
   }
 </style>
 </head>
@@ -267,39 +252,23 @@
 
       <p class="proj-intro">Запускал и перезапускал заведения с нуля — от концепции и стройки до сбора команды, выстраивания процессов, P&amp;L и работы с поставщиками и контролирующими органами.</p>
 
-      <h3 class="sub-head">Ключевые навыки</h3>
-      <div class="skills-list">
-        <div class="skill-item"><b>Запуск «с нуля»</b><p>Концепция, дизайн и стройка заведения от идеи до открытия — прошёл этот путь практически ежегодно.</p></div>
-        <div class="skill-item"><b>Финансы и P&amp;L</b><p>Бюджетирование, ABC-анализ, фудкост-контроль, управление запасами и KPI.</p></div>
-        <div class="skill-item"><b>Команда и сервис</b><p>Программы обучения, стандарты обслуживания, системы мотивации на удержание ключевых сотрудников.</p></div>
-        <div class="skill-item"><b>B2B и продажи</b><p>Работа с корпоративными клиентами, мероприятия, маркетинговые стратегии и выполнение планов продаж.</p></div>
-        <div class="skill-item"><b>Технологии</b><p>Пишу ТЗ и внедряю собственное ПО — например, интеграцию бронирования с CRM «Битрикс24».</p></div>
-        <div class="skill-item"><b>Ассортимент и категории</b><p>Меню, винная карта, ритейл-ассортимент и работа с Horeca-направлением.</p></div>
-        <div class="skill-item"><b>Ивент-менеджмент</b><p>Работа с арт-директором по концепции и проведению тематических и промо-вечеринок, концертов и тематических вечеров.</p></div>
-        <div class="skill-item"><b>Работа с гостями</b><p>Рассмотрение претензий гостей, повышение лояльности постоянных посетителей, контроль уровня сервиса и качества кухни.</p></div>
-        <div class="skill-item"><b>Учёт и администрирование</b><p>Инвентаризации, графики и табели рабочего времени, корпоративная отчётность, контроль исполнения платежей совместно с бухгалтерией.</p></div>
-        <div class="skill-item"><b>Контролирующие органы</b><p>Заключение договоров с корпоративными клиентами и взаимодействие с контролирующими органами по требованиям заведения.</p></div>
-      </div>
+      <p>Одинаково уверенно прохожу весь цикл: концепция, дизайн и стройка заведения «с нуля» — этот путь я проходил практически ежегодно. Дальше — бюджетирование, ABC-анализ, фудкост-контроль и управление запасами; собираю команду и сервис через программы обучения, стандарты обслуживания и мотивацию на удержание ключевых людей; веду B2B — корпоративных клиентов, мероприятия, планы продаж.</p>
+
+      <p>Пишу технические задания и внедряю собственное ПО — например, интеграцию бронирования с CRM «Битрикс24». Формирую меню, винную карту и ассортимент, включая Horeca-направление, и вместе с арт-директором организую тематические вечера и концерты. Разбираю претензии гостей, слежу за лояльностью и качеством сервиса и кухни, веду инвентаризации, графики, отчётность и контроль платежей, заключаю договоры и взаимодействую с контролирующими органами.</p>
 
       <h3 class="sub-head">Проекты</h3>
       <div class="projects">
 
         <article class="proj proj--wide">
           <img class="proj__photo" src="images/marbl-1.jpg" alt="Зал ресторана Marbl">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Marbl Restaurant</h3><span class="proj__period">май 2020 – авг. 2023</span></div>
-            <span class="proj__role">Управляющий директор рестораном · Минск</span>
-            <p>Премиальный ресторан с нуля: концепция и дизайн. Разработал программы обучения и стандарты обслуживания, вёл контроль бюджета через ABC-анализ. Развивал B2B-продажи через корпоративных клиентов и мероприятия, а вместе с шеф-поваром балансировал креативность меню и рентабельность.</p>
-          </div>
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Marbl Restaurant</h3></div>
         </article>
 
         <article class="proj">
-          <img class="proj__photo" src="images/sava-bar-2.jpg" alt="Фасад бара SAVA">
-          <div class="proj__body">
-            <div class="proj__top"><h3>SAVA Bar</h3><span class="proj__period">окт. 2023 – янв. 2025</span></div>
-            <span class="proj__role">Управляющий директор · Минск</span>
-            <p>Перезапуск действующего заведения в новом, ночном формате — новая концепция целиком и полный пакет разрешительной документации.</p>
-          </div>
+          <img class="proj__photo" src="images/sava-bar-3.jpg" alt="Интерьер бара SAVA">
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>SAVA Bar</h3></div>
         </article>
 
         <article class="proj">
@@ -307,71 +276,48 @@
             <img src="images/umami-1.jpg" alt="Зал необистро Umami">
             <img src="images/umami-2.jpg" alt="Интерьер необистро Umami">
           </div>
-          <div class="proj__body">
-            <div class="proj__top"><h3>Umami / Ресторан «Дом»</h3><span class="proj__period">дек. 2019 – дек. 2020</span></div>
-            <span class="proj__role">Управляющий директор · Минск</span>
-            <p>Одновременное управление двумя заведениями: запуск концепции неоресторана Umami и ведение ресторана «Дом», включая маркетинговые стратегии и выполнение планов продаж по обоим объектам.</p>
-          </div>
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Umami / Ресторан «Дом»</h3></div>
         </article>
 
         <article class="proj">
           <img class="proj__photo" src="images/stirlitz.jpg" alt="Интерьер бара Stirlitz spy bar">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Stirlitz Spy Bar</h3></div>
-            <span class="proj__role">Управляющий, ООО «Джет-Поинт» · Минск</span>
-            <p>Организация и контроль высокого уровня сервиса, подбор и обучение персонала. Составление и реализация планов продаж, работа с арт-директором над тематическими и промо-вечеринками, концертами. Заключение договоров с корпоративными клиентами, работа с алкогольными и маркетинговыми бюджетами, взаимодействие с контролирующими органами и бухгалтерией.</p>
-          </div>
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Stirlitz Spy Bar</h3></div>
         </article>
 
         <article class="proj">
           <img class="proj__photo" src="images/rolling-stone.jpg" alt="Интерьер Rolling Stone Bar">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Rolling Stone Bar</h3></div>
-            <span class="proj__role">Управляющий · Москва</span>
-            <p>Организация и контроль сервиса, координация персонала, поиск и заключение договоров с корпоративными клиентами. Работа с арт-директором по концепции тематических вечеринок и концертов, контроль кассовой дисциплины и алкогольных бюджетов, разработка программы мотивации персонала.</p>
-          </div>
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Rolling Stone Bar</h3></div>
         </article>
 
         <article class="proj proj--wide">
-          <img class="proj__photo" src="images/prichal.jpg" alt="Зал ресторана «Причал»">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Ресторан «Причал»</h3></div>
-            <span class="proj__role">Заместитель управляющего · Жуковка, Novikov Group, Москва</span>
-            <p>Организация работы персонала ресторана, подбор, обучение и адаптация сотрудников, проведение собеседований и распределение обязанностей. Соблюдение корпоративных стандартов, рассмотрение претензий гостей и работа над лояльностью постоянных посетителей, инвентаризации, контроль уровня сервиса и качества кухни, ведение корпоративной отчётности.</p>
-          </div>
+          <img class="proj__photo" src="images/prichal.jpg" alt="Терраса ресторана «Причал» на воде">
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Ресторан «Причал»</h3></div>
         </article>
 
         <article class="proj">
           <img class="proj__photo" src="images/beefbar.jpg" alt="Зал ресторана Beefbar Moscow">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Beefbar Moscow</h3></div>
-            <span class="proj__role">Менеджер · Москва</span>
-            <p>Организация работы персонала ресторана, подбор, обучение и адаптация сотрудников, распределение обязанностей. Соблюдение корпоративных стандартов, работа с претензиями гостей, составление графиков и табелей рабочего времени.</p>
-          </div>
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Beefbar Moscow</h3></div>
         </article>
 
-        <article class="proj proj--tinted proj--accent">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Heroes Play-Bar</h3><span class="proj__period">окт. 2025 – июль 2026</span></div>
-            <span class="proj__role">Управляющий · Минск</span>
-            <p>Бар с нуля — от стройки до открытия. Переработал концепцию меню и барной карты, модернизировал звуковое и техническое оснащение площадки. Написал ТЗ и внедрил собственное ПО, связал систему бронирования с CRM «Битрикс24».</p>
-          </div>
+        <article class="proj">
+          <img class="proj__photo" src="images/heroes-playbar.jpg" alt="Барная стойка плейбара Heroes">
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Heroes Play-Bar</h3></div>
         </article>
 
-        <article class="proj proj--tinted proj--wine">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Studio Wine &amp; Spirits</h3><span class="proj__period">май 2017 – июнь 2020</span></div>
-            <span class="proj__role">Управляющий директор · Минск</span>
-            <p>Ресторанно-винный магазин. Построил систему мотивации персонала, нацеленную на удержание ключевых сотрудников и достижение KPI.</p>
-          </div>
+        <article class="proj proj--tinted">
+          <div class="proj__body"><h3>Studio Wine &amp; Spirits</h3></div>
         </article>
 
-        <article class="proj proj--tinted proj--ink">
-          <div class="proj__body">
-            <div class="proj__top"><h3>Юнистор Групп — ритейл</h3></div>
-            <span class="proj__role">Менеджер по развитию · Минск</span>
-            <p>Розничная продуктовая сеть — единственный проект вне ресторанного мира. Развивал ассортимент сети, искал операторов под проект «7 пятниц XXL» и отдельно прокачивал ассортимент для Horeca-подразделения UNISTOR.</p>
-          </div>
+        <article class="proj">
+          <img class="proj__photo" src="images/unistor-7fridays.jpg" alt="Магазин сети «Семь пятниц XXL»">
+          <div class="proj__scrim"></div>
+          <div class="proj__body"><h3>Юнистор Групп — ритейл</h3></div>
         </article>
 
       </div>
@@ -430,11 +376,13 @@
       <li>marbl-1.jpg, marbl-2.jpg — ресторан Marbl (пл. Свободы, 4, Минск). Источник: <a href="https://marbl.by/">marbl.by</a></li>
       <li>umami-1.jpg, umami-2.jpg — необистро Umami (ул. Революционная, 28, Минск). Источник: <a href="https://umami.relax.by/">umami.relax.by</a></li>
       <li>sava-bar-1.jpg — вечерняя терраса бара SAVA (ул. Берсона, 14, Минск). Источник: <a href="https://yandex.com/maps/org/sava/217537340736/gallery/?photos%5Bbusiness%5D=217537340736&photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A2a00000191031afed08def35903bcd2a60b2">Яндекс Карты</a></li>
-      <li>sava-bar-2.jpg — фасад бара SAVA. Источник: <a href="https://sava-bar.relax.by/">sava-bar.relax.by</a></li>
+      <li>sava-bar-3.jpg — интерьер бара SAVA. Источник: <a href="https://yandex.com/maps/org/sava/217537340736/gallery/">Яндекс Карты</a></li>
       <li>stirlitz.jpg — бар Stirlitz spy bar (Минск). Фото: Аркадий Соболев. Источник: <a href="https://realt.onliner.by/2014/01/13/stirlitz">realt.onliner.by</a></li>
       <li>rolling-stone.jpg — Rolling Stone Bar (Москва). Источник: <a href="https://tomesto.ru/moskva/places/rolling-stone-bar">tomesto.ru</a></li>
-      <li>prichal.jpg — ресторан «Причал» (Жуковка, Novikov Group). Источник: <a href="https://tomesto.ru/moskva/places/prichal">tomesto.ru</a></li>
+      <li>prichal.jpg — ресторан «Причал» (Жуковка, Novikov Group). Источник: <a href="https://www.timeout.ru/msk/place/restoran_prichal-3">timeout.ru</a></li>
       <li>beefbar.jpg — ресторан Beefbar Moscow (Москва). Источник: <a href="https://tomesto.ru/moskva/places/beefbar-moscow">tomesto.ru</a></li>
+      <li>heroes-playbar.jpg — плейбар Heroes (ТРЦ «Минск Сити Молл», Минск). Источник: <a href="https://yandex.com/maps/org/heroes/218885192962/">Яндекс Карты</a></li>
+      <li>unistor-7fridays.jpg — магазин сети «Семь пятниц XXL» (Минск). Источник: <a href="https://unistore.by/xxl-7fridays/">unistore.by</a></li>
     </ul>
     <p class="sig">Официальные фотографии заведений; права принадлежат заведениям/фотографам, используются как иллюстрация личного опыта работы (см. Persona/images/CREDITS.md).</p>
   </div>

@@ -18,8 +18,11 @@
 - **marbl-1.jpg**, **marbl-2.jpg** — ресторан **Marbl** (пл. Свободы, 4, Минск). Источник: https://marbl.by/
 - **umami-1.jpg**, **umami-2.jpg** — необистро **Umami** (ул. Революционная, 28, Минск). Источник: https://umami.relax.by/
 - **sava-bar-1.jpg** — вечерняя терраса бара **SAVA** (ул. Берсона, 14, Минск). Источник: Яндекс Карты, https://yandex.com/maps/org/sava/217537340736/gallery/?photos%5Bbusiness%5D=217537340736&photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A2a00000191031afed08def35903bcd2a60b2
-- **sava-bar-2.jpg** — фасад бара **SAVA**. Источник: https://sava-bar.relax.by/
+- **sava-bar-2.jpg** — фасад бара **SAVA** (не используется на сайте, оставлено для заметок в проекты.md). Источник: https://sava-bar.relax.by/
+- **sava-bar-3.jpg** — интерьер бара **SAVA**. Источник: Яндекс Карты, https://yandex.com/maps/org/sava/217537340736/gallery/?photos%5Bbusiness%5D=217537340736&photos%5Bid%5D=urn%3Ayandex%3Asprav%3Aphoto%3A2a0000019e2111d9f0f0199623d6c3c8a865
 - **stirlitz.jpg** — бар **STIRLITZ spy bar** (ул. Октябрьская, Минск). Фото: Аркадий Соболев, статья об открытии. Источник: https://realt.onliner.by/2014/01/13/stirlitz
 - **rolling-stone.jpg** — **Rolling Stone Bar** (Болотная наб., 3, Москва). Источник: https://tomesto.ru/moskva/places/rolling-stone-bar
-- **prichal.jpg** — ресторан **«Причал»** (Ильинское ш., 2 км, Жуковка, Novikov Group). Источник: https://tomesto.ru/moskva/places/prichal
+- **prichal.jpg** — терраса ресторана **«Причал»** (Ильинское ш., 2 км, Жуковка, Novikov Group). Источник: https://www.timeout.ru/msk/place/restoran_prichal-3
 - **beefbar.jpg** — ресторан **Beefbar Moscow** (Пречистенская наб., Москва). Источник: https://tomesto.ru/moskva/places/beefbar-moscow
+- **heroes-playbar.jpg** — плейбар **Heroes** (ул. Льва Толстого, 1, ТРЦ «Минск Сити Молл», Минск). Источник: Яндекс Карты, https://yandex.com/maps/org/heroes/218885192962/
+- **unistor-7fridays.jpg** — магазин сети **«Семь пятниц XXL»** (ЮниСтор Групп, Минск). Источник: https://unistore.by/xxl-7fridays/
